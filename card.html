@@ -1,81 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="src/style/main.css">
 </head>
+
 <body>
-    
-<nav>
-    <button>Home</button>
-    <button>Cars</button>
-    <button>Info</button>
-    <button>Contacts</button>
-</nav>
+
+    <nav>
+        <button>Home</button>
+        <button>Cars</button>
+        <button>Info</button>
+        <button>Contacts</button>
+    </nav>
 
 
-<div class="cards">
-    <div class="card one">
-        <h1>Aston martin</h1>
-        <p>British manufacturer of luxury sports cars and grand tourers.</p>
-        <div class="images">
-            <img class="nonactive" src="src/images/astonside2.png" alt="car">
-            <img class="active" src="src/images/astonfront.png" alt="carfront">
+    <div class="cards">
+        <div class="card one">
+            <h1>Aston martin</h1>
+            <p>British manufacturer of luxury sports cars and grand tourers.</p>
+            <div class="images">
+                <img class="nonactive" src="src/images/astonside2.png" alt="car">
+                <img class="active" src="src/images/astonfront.png" alt="carfront">
+            </div>
+
+            <div class="button">
+                <button>Select</button>
+            </div>
         </div>
-        
-        <div class="button">
-            <button>Select</button>
-        </div>       
-    </div>
-    <div class="card two">
-        <h1>Porsche</h1>
-        <p>German automobile manufacturer specializing in luxury, high-performance sports cars from Baden-Württemberg, Germany.</p>
-        <div class="images">
-            <img class="nonactive" src="src/images/poscheside.png" alt="car" style="height: 90%;">
-            <img class="active" src="src/images/fronpor.png" alt="carfront">
+        <div class="card two">
+            <h1>Porsche</h1>
+            <p>German automobile manufacturer specializing in luxury, high-performance sports cars from
+                Baden-Württemberg, Germany.</p>
+            <div class="images">
+                <img class="nonactive" src="src/images/poscheside.png" alt="car" style="height: 90%;">
+                <img class="active" src="src/images/fronpor.png" alt="carfront">
+            </div>
+
+            <div class="button">
+                <button>Select</button>
+            </div>
         </div>
-        
-        <div class="button">
-            <button>Select</button>
-        </div>       
-    </div>
-    <div class="card three">
-        <h1>Audi</h1>
-        <p>German automotive manufacturer of luxury vehicles headquartered in Ingolstadt, Bavaria, Germany.</p>
-        <div class="images">
-            <img class="nonactive" src="src/images/audiside2.png" alt="car">
-            <img class="active" src="src/images/frontaudii.png" alt="carfront">
+        <div class="card three">
+            <h1>Audi</h1>
+            <p>German automotive manufacturer of luxury vehicles headquartered in Ingolstadt, Bavaria, Germany.</p>
+            <div class="images">
+                <img class="nonactive" src="src/images/audiside2.png" alt="car">
+                <img class="active" src="src/images/frontaudii.png" alt="carfront">
+            </div>
+
+            <div class="button">
+                <button>Select</button>
+            </div>
         </div>
-        
-        <div class="button">
-            <button>Select</button>
-        </div>       
     </div>
-</div>
 
-<button id="theme-toggle">Dark Mode</button>
-
+    <button id="theme-toggle">Dark Mode</button>
 
 
-<script>
-const toggle = document.getElementById('theme-toggle');
-const body = document.body;
 
-if (localStorage.getItem('theme') === 'dark') {
-  body.classList.add('dark-mode');
-  toggle.textContent = 'Light Mode';
-}
+    <script>
+        const toggle = document.getElementById('theme-toggle');
+        const body = document.body;
 
-toggle.addEventListener('click', () => {
-  body.classList.toggle('dark-mode');
-  const isDark = body.classList.contains('dark-mode');
-  toggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
-});
-</script>
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            toggle.textContent = 'Light Mode';
+        }
+
+        toggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            const isDark = body.classList.contains('dark-mode');
+            toggle.textContent = isDark ? 'Light Mode' : 'Dark Mode';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+    </script>
 
 
 </body>
+
 </html>
