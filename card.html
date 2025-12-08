@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    
+<nav>
+    <button>Home</button>
+    <button>Cars</button>
+    <button>Info</button>
+    <button>Contacts</button>
+</nav>
+
+
+<div class="cards">
+    <div class="card one">
+        <h1>Aston martin</h1>
+        <p>British manufacturer of luxury sports cars and grand tourers.</p>
+        <div class="images">
+            <img class="nonactive" src="astonside2.png" alt="car">
+            <img class="active" src="astonfront.png" alt="carfront">
+        </div>
+        
+        <div class="button">
+            <button>Select</button>
+        </div>       
+    </div>
+    <div class="card two">
+        <h1>Porsche</h1>
+        <p>German automobile manufacturer specializing in luxury, high-performance sports cars from Baden-Württemberg, Germany.</p>
+        <div class="images">
+            <img class="nonactive" src="poscheside.png" alt="car" style="height: 90%;">
+            <img class="active" src="fronpor.png" alt="carfront">
+        </div>
+        
+        <div class="button">
+            <button>Select</button>
+        </div>       
+    </div>
+    <div class="card three">
+        <h1>Audi</h1>
+        <p>German automotive manufacturer of luxury vehicles headquartered in Ingolstadt, Bavaria, Germany.</p>
+        <div class="images">
+            <img class="nonactive" src="audiside2.png" alt="car">
+            <img class="active" src="frontaudii.png" alt="carfront">
+        </div>
+        
+        <div class="button">
+            <button>Select</button>
+        </div>       
+    </div>
+</div>
+
+<button onclick="myFunction()">Toggle dark mode</button>
+
+
+<script>
+function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+
+
+</body>
+</html>
