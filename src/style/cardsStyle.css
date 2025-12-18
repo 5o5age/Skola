@@ -4,6 +4,8 @@
     box-sizing: border-box;
 }
 
+
+
 html {
     margin: 0;
     padding: 0;
@@ -11,24 +13,26 @@ html {
 }
 
 body {
-    margin: 0;
+    margin-top: 4em;
 }
 
 
-nav {
+.nav {
     display: flex;
     justify-content: center;
     gap: 0.5rem;
     padding: 0.75rem 1rem;
     flex-wrap: wrap;
+    position: relative;
 }
 
-nav>button {
-    border-style: none solid;
-    border-width: 0.1px;
-    border-color: rgb(165, 165, 165);
-}
+.nav-links a,
+.nav-toggle,
+button {
+    color: #2a2a2a;
+    text-decoration: none;
 
+}
 
 #theme-toggle {
     position: fixed;
@@ -38,7 +42,6 @@ nav>button {
     z-index: 100;
 }
 
-
 .cards {
     padding: 2rem;
     display: flex;
@@ -47,7 +50,6 @@ nav>button {
     flex-wrap: wrap;
     gap: 2rem;
 }
-
 
 .card {
     border-radius: 2rem;
@@ -115,7 +117,9 @@ h1 {
     margin-top: 0;
 }
 
-button {
+a,
+button,
+.nav-toggle {
     font-size: 1.2rem;
     font-weight: bold;
     margin: 2rem 2rem 0;
@@ -126,17 +130,16 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+a:hover,
+button:hover,
+.nav-toggle:hover {
     background-color: rgb(222, 236, 255);
 }
-
-/*------------------------------------------------*/
 
 
 body.dark-mode {
     background-color: #1C1C1C;
 }
-
 
 body.dark-mode .card.one {
     background-image: linear-gradient(rgb(66, 16, 50), rgb(114, 93, 24));
@@ -155,16 +158,24 @@ body.dark-mode .card {
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
 }
 
-body.dark-mode button {
+body.dark-mode a,
+body.dark-mode button,
+body.dark-mode .nav-toggle {
     background-color: #1a1a1a;
     color: #f5f5f5;
 }
 
-body.dark-mode button:hover {
+body.dark-mode a:hover,
+body.dark-mode button:hover,
+body.dark-mode .nav-toggle:hover {
     background-color: #2a2a2a;
 }
 
-/*------------------------------------------------*/
+
+.nav-toggle,
+.nav-dropdown {
+    display: none;
+}
 
 
 @media (max-width: 900px) {
@@ -182,27 +193,51 @@ body.dark-mode button:hover {
         font-size: 2.2rem;
     }
 
-    button {
+    a,
+    button,
+    .nav-toggle {
         font-size: 1rem;
         padding: 1.1rem 2rem;
         margin: 1.5rem 1rem 0;
     }
 
-    nav {
-        justify-content: center;
+
+    .nav-links {
+        display: none;
     }
 
-    nav>button {
-        flex: 1 1 calc(50% - 0.5rem);
-        font-size: 0.9rem;
-        padding: 0.75rem 0.5rem;
+    .nav-toggle {
+        display: inline-block;
         margin: 0;
+        padding: 0.9rem 1.5rem;
+    }
+
+    .nav-dropdown {
+        display: block;
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        min-width: 220px;
+        margin-top: 0.75rem;
+        z-index: 50;
+    }
+
+    .nav-dropdown a {
+        display: block;
+        margin: 0;
+        padding: 0.75rem 1rem;
+        border-radius: 0.75rem;
+    }
+
+    body.dark-mode .nav-dropdown {
+        background: #1a1a1a;
     }
 }
-
-
-
-
 
 @media (max-width: 600px) {
     .cards {
@@ -224,7 +259,9 @@ body.dark-mode button:hover {
         font-size: 1.8rem;
     }
 
-    button {
+    a,
+    button,
+    .nav-toggle {
         font-size: 0.95rem;
         padding: 0.9rem 1.5rem;
         margin: 1.25rem auto 0;
@@ -237,4 +274,87 @@ body.dark-mode button:hover {
         font-size: 0.9rem;
         padding: 0.75rem 1.25rem;
     }
+}
+
+.nav-dropdown[hidden] {
+    display: none !important;
+}
+
+.nav-item {
+    position: relative;
+    display: inline-block;
+}
+
+.services-dropdown {
+    display: none;
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    min-width: 200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 20;
+}
+
+.services-dropdown a {
+    display: block;
+    margin: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+}
+
+.services-dropdown a:hover {
+    background-color: rgb(222, 236, 255);
+}
+
+.services:hover .services-dropdown {
+    display: block;
+}
+
+.modal[hidden] {
+    display: none !important;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+}
+
+.modal__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.modal__content {
+    position: relative;
+    max-width: 720px;
+    margin: 8vh auto;
+    background: #fff;
+    border-radius: 1.25rem;
+    padding: 1.25rem 1.25rem 1.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.modal__close {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.6rem 0.9rem;
+    margin: 0;
+    border-radius: 0.75rem;
+}
+
+.modal__body h2 {
+    margin-top: 0.5rem;
+}
+
+body.dark-mode .modal__content {
+    background: #1a1a1a;
+    color: #f5f5f5;
 }
